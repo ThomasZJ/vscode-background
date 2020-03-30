@@ -39,8 +39,13 @@ class Style {
     }
 
     getJs(): string {
-        const opacity = 0.95;
-        let imagesJs = '"D:\\Pictures\\201008094903-18956.jpg"'.replace(/\\/g, '/');
+        const opacity = 0.9;
+        let config = vscode.workspace.getConfiguration("background");
+        let imagesJs = "";
+        let path: string | undefined = '"' + config.get<string>("filepath") + '"';
+        if (path) {
+            imagesJs = path.replace(/\\/g, '/');
+        }
         return `
 /*${this.extName}-start*/
 /*${this.extName}.ver.${pkg.version}*/

@@ -1,9 +1,9 @@
 {
-	"name": "jokerbackground",
-	"displayName": "JokerBackground",
+	"name": "background",
+	"displayName": "Background",
 	"description": "change the background",
-	"version": "0.0.1",
-	"publish": "Joker",
+	"version": "1.0.0",
+	"publisher": "Joker",
 	"engines": {
 		"vscode": "^1.43.0"
 	},
@@ -11,26 +11,41 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.jokerstar",
-		"onCommand:extension.jokerstop",
-		"onCommand:extension.openfile"
+		"onCommand:extension.backgroundstar",
+		"onCommand:extension.backgroundstop",
+		"onCommand:extension.filepath"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.jokerstar",
-				"title": "JokerBackgroundStar"
+				"command": "extension.backgroundstar",
+				"title": "Background - Star"
 			},
 			{
-				"command": "extension.jokerstop",
-				"title": "JokerBackgroundStop"
+				"command": "extension.backgroundstop",
+				"title": "Background - Stop"
 			},
 			{
-				"command": "extension.openfile",
-				"title": "JokerBackgroundOpenFile"
+				"command": "extension.filepath",
+				"title": "Background - FilePath"
 			}
-		]
+		],
+		"configuration": {
+			"title": "background config",
+			"properties": {
+				"background.filepath": {
+					"type": "string",
+					"default": "",
+					"description": "The path of the selected image file"
+				},
+				"background.opacity": {
+					"type": "number",
+					"default": 0.85,
+					"description": "The background image's opacity"
+				}
+			}
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
