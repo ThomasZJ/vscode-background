@@ -2,10 +2,10 @@
 	"name": "background",
 	"displayName": "Background",
 	"description": "change the background",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"publisher": "Joker",
 	"engines": {
-		"vscode": "^1.43.0"
+		"vscode": "^1.40.0"
 	},
 	"categories": [
 		"Other"
