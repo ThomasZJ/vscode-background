@@ -1,4 +1,5 @@
 import * as vscode from 'vscode';
+import Config from './Config';
 
 class FileSelect {
 
@@ -8,7 +9,7 @@ class FileSelect {
         return this.fileUrl;
     }
 
-    public async openFileDialog() {
+    public async openFileDialog(callback: (path: string) => void) {
         let filters = {
             'Images': ['png', 'jpg', 'jpeg', 'gif']
         };
@@ -21,8 +22,9 @@ class FileSelect {
         });
         if (fileUrls) {
             this.fileUrl = fileUrls[0].fsPath;
-            let config = vscode.workspace.getConfiguration("background");
-            config.update("filepath", this.fileUrl, vscode.ConfigurationTarget.Global);
+            Config.SetConfig('filepath', this.fileUrl);
+            Config.filePath = this.fileUrl;
+            callback(this.fileUrl);
             console.log(this.fileUrl);
         }
     }

@@ -3,6 +3,7 @@
 import * as vscode from 'vscode';
 import Style from './Style';
 import FileSelect from './FileSelect';
+import Config from './Config';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -24,12 +25,34 @@ export function activate(context: vscode.ExtensionContext) {
 		vscode.commands.executeCommand('workbench.action.reloadWindow');
 	});
 	let open = vscode.commands.registerCommand('extension.filepath', () => {
-		FileSelect.openFileDialog();
+		FileSelect.openFileDialog((path) => {
+			console.log(path);
+			Style.install();
+			vscode.commands.executeCommand('workbench.action.reloadWindow');
+		});
 	});
+	let opacity = vscode.commands.registerCommand('extension.opacity', () => {
+		const option = {
+			ignoreFocusOut: true,
+			password: false,
+			placeHolder: '0.00 ～ 1.00',
+			prompt: 'Default Opacity:' + Config.Opacity + '）'
+		};
+		vscode.window.showInputBox(option).then(
+			value => {
+				if (value && Number.parseFloat(value)) {
+					Config.Opacity = value;
+					Config.SetConfig('opacity', Number.parseFloat(value));
+					vscode.commands.executeCommand('workbench.action.reloadWindow');
+				}
+			}
+		);
+	})
 
 	context.subscriptions.push(star);
 	context.subscriptions.push(stop);
 	context.subscriptions.push(open);
+	context.subscriptions.push(opacity);
 }
 
 // this method is called when your extension is deactivated

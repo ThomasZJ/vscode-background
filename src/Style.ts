@@ -1,6 +1,8 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import * as vscode from 'vscode';
+import Config from './Config';
+import { stringify } from 'querystring';
 
 const jsName = 'bootstrap-window.js';
 const pkg = require("./../package.json");
@@ -39,13 +41,20 @@ class Style {
     }
 
     getJs(): string {
-        const opacity = 0.9;
-        let config = vscode.workspace.getConfiguration("background");
+        let opacity = 1;
         let imagesJs = "";
-        let path: string | undefined = '"' + config.get<string>("filepath") + '"';
-        if (path) {
-            imagesJs = path.replace(/\\/g, '/');
-        }
+        let path: string = '';
+        if (Config.filePath)
+            path = Config.filePath;
+        else
+            path = Config.GetConfig('filepath');
+
+        if (Config.Opacity)
+            opacity = Number.parseFloat(Config.Opacity);
+        else
+            opacity = Number.parseFloat(Config.GetConfig('opacity'));
+
+        imagesJs = ('"' + path + '"').replace(/\\/g, '/');
         return `
 /*${this.extName}-start*/
 /*${this.extName}.ver.${pkg.version}*/

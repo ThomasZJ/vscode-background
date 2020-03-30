@@ -13,6 +13,7 @@
 	"activationEvents": [
 		"onCommand:extension.backgroundstar",
 		"onCommand:extension.backgroundstop",
+		"onCommand:extension.opacity",
 		"onCommand:extension.filepath"
 	],
 	"main": "./out/extension.js",
@@ -25,6 +26,10 @@
 			{
 				"command": "extension.backgroundstop",
 				"title": "Background - Stop"
+			},
+			{
+				"command": "extension.opacity",
+				"title": "Background - Opacity"
 			},
 			{
 				"command": "extension.filepath",
