@@ -15,7 +15,7 @@ class Style {
             this.jsPath = path.join(path.dirname(fileName), jsName);
             vscode.window.showInformationMessage(this.jsPath);
         }
-        this.extName = "extension-am9rZXJiYWNrZ3JvdW5k"
+        this.extName = "extension-am9rZXJiYWNrZ3JvdW5k";
     }
 
     install() {
