@@ -26,7 +26,6 @@ export function activate(context: vscode.ExtensionContext) {
 	});
 	let open = vscode.commands.registerCommand('extension.filepath', () => {
 		FileSelect.openFileDialog((path) => {
-			console.log(path);
 			Style.install();
 			vscode.commands.executeCommand('workbench.action.reloadWindow');
 		});
@@ -43,6 +42,7 @@ export function activate(context: vscode.ExtensionContext) {
 				if (value && Number.parseFloat(value)) {
 					Config.Opacity = value;
 					Config.SetConfig('opacity', Number.parseFloat(value));
+					Style.install();
 					vscode.commands.executeCommand('workbench.action.reloadWindow');
 				}
 			}
