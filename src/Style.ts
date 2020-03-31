@@ -15,7 +15,7 @@ class Style {
         let fileName: string | undefined = require.main?.filename;
         if (fileName) {
             this.jsPath = path.join(path.dirname(fileName), jsName);
-            vscode.window.showInformationMessage(this.jsPath);
+            //vscode.window.showInformationMessage(this.jsPath);
         }
         this.extName = "extension-am9rZXJiYWNrZ3JvdW5k";
     }
