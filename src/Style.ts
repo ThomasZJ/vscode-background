@@ -44,15 +44,18 @@ class Style {
         let opacity = 1;
         let imagesJs = "";
         let path: string = '';
-        if (Config.filePath)
+        if (Config.filePath) {
             path = Config.filePath;
-        else
+        }
+        else {
             path = Config.GetConfig('filepath');
-
-        if (Config.Opacity)
+        }
+        if (Config.Opacity) {
             opacity = Number.parseFloat(Config.Opacity);
-        else
+        }
+        else {
             opacity = Number.parseFloat(Config.GetConfig('opacity'));
+        }
 
         imagesJs = ('"' + path + '"').replace(/\\/g, '/');
         return `
