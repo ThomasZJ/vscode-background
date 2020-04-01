@@ -4,7 +4,7 @@
 	"description": "Change the background",
 	"version": "1.0.1",
 	"publisher": "Joker",
-    "repository": {},
+	"repository": {},
 	"engines": {
 		"vscode": "^1.32.0"
 	},
@@ -15,7 +15,7 @@
 		"onCommand:extension.backgroundstar",
 		"onCommand:extension.backgroundstop",
 		"onCommand:extension.opacity",
-		"onCommand:extension.filepath"
+		"onCommand:extension.openfile"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -33,8 +33,8 @@
 				"title": "Background - Opacity"
 			},
 			{
-				"command": "extension.filepath",
-				"title": "Background - FilePath"
+				"command": "extension.openfile",
+				"title": "Background - OpenFile"
 			}
 		],
 		"configuration": {

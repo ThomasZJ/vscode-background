@@ -24,7 +24,7 @@ export function activate(context: vscode.ExtensionContext) {
 		Style.uninstall();
 		vscode.commands.executeCommand('workbench.action.reloadWindow');
 	});
-	let open = vscode.commands.registerCommand('extension.filepath', () => {
+	let open = vscode.commands.registerCommand('extension.openfile', () => {
 		FileSelect.openFileDialog((path) => {
 			Style.install();
 			vscode.commands.executeCommand('workbench.action.reloadWindow');
@@ -34,11 +34,11 @@ export function activate(context: vscode.ExtensionContext) {
 		const option = {
 			ignoreFocusOut: true,
 			password: false,
-			placeHolder: '0.00 ～ 1.00',
-			prompt: 'Default Opacity:' + Config.Opacity + '）'
+			placeHolder: '0.00 ~ 1.00',
+			prompt: 'Current Opacity:' + '(' + Config.Opacity + ')'
 		};
 		vscode.window.showInputBox(option).then(
-			value => {
+			(value: string | undefined) => {
 				if (value && Number.parseFloat(value)) {
 					Config.Opacity = value;
 					Config.SetConfig('opacity', Number.parseFloat(value));
