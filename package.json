@@ -4,7 +4,7 @@
 	"description": "Change the background",
 	"version": "1.0.1",
 	"publisher": "Joker",
-    "repository": {},
+	"repository": {},
 	"engines": {
 		"vscode": "^1.32.0"
 	},
@@ -43,7 +43,7 @@
 				"background.filepath": {
 					"type": "string",
 					"default": "",
-					"description": "The path of the selected image file"
+					"description": "The path of the selected image"
 				},
 				"background.opacity": {
 					"type": "number",
