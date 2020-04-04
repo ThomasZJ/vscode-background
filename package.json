@@ -3,7 +3,7 @@
   "displayName": "Background",
   "description": "Change the background",
   "version": "1.0.1",
-  "publisher": "Joker",
+  "publisher": "ThomasZhang",
   "repository": {
     "url": "https://github.com/ThomasZJ/vscode-background.git"
   },
