@@ -2,7 +2,7 @@
   "name": "background",
   "displayName": "Background",
   "description": "Change the background",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "publisher": "ThomasZhang",
   "repository": {
     "url": "https://github.com/ThomasZJ/vscode-background.git"
@@ -17,7 +17,9 @@
     "onCommand:extension.backgroundstar",
     "onCommand:extension.backgroundstop",
     "onCommand:extension.opacity",
-    "onCommand:extension.openfile"
+    "onCommand:extension.openfile",
+    "onCommand:extension.alignment",
+    "onCommand:extension.size"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -37,6 +39,14 @@
       {
         "command": "extension.openfile",
         "title": "Background - SelectImage"
+      },
+      {
+        "command": "extension.alignment",
+        "title": "Background - Alignment"
+      },
+      {
+        "command": "extension.size",
+        "title": "Background - Size"
       }
     ],
     "configuration": {
@@ -51,6 +61,16 @@
           "type": "number",
           "default": 0.85,
           "description": "The background image's opacity"
+        },
+        "background.alignment": {
+          "type": "string",
+          "default": "top top",
+          "definitions": "The image position"
+        },
+        "background.size": {
+          "type": "string",
+          "default": "cover",
+          "definitions": "The image size"
         }
       }
     }
