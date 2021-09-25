@@ -66,17 +66,13 @@ class Style {
       size = Config.GetConfig("size");
     }
 
-    /* fix provided by Katsute <https://github.com/Katsute> */ {
-        const isGIF: boolean = path.endsWith(".gif");
-        const imgAsBase64: string = fs.existsSync(path) ? fs.readFileSync(path, "base64") : "";
-        imagesJs = `data:image/${isGIF ? "gif" : "png"};base64,${imgAsBase64}`;
-    }
+    imagesJs = ('"' + path + '"').replace(/\\/g, "/");
 
     return `
 /*${this.extName}-start*/
 /*${this.extName}.ver.${pkg.version}*/
 window.onload = function() {
-    const image = "${imagesJs}"
+    const image = ${imagesJs}
     const defaultOpacity = ${opacity}
     const position = "${pos}"
     const size = "${size}"
