@@ -1,8 +1,8 @@
 {
-  "name": "background",
-  "displayName": "Background",
+  "name": "background4oldvsc",
+  "displayName": "Background For Old VSCode",
   "description": "Change the background",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "publisher": "ThomasZhang",
   "repository": {
     "url": "https://github.com/ThomasZJ/vscode-background.git"
